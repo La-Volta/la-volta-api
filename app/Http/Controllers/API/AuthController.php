@@ -35,6 +35,8 @@ class AuthController extends Controller
                 'password' => Hash::make($request->password) ,
             ]);
 
+            $stripeCustomer = $user->createAsStripeCustomer();
+
             $token = $user->createToken($user->email.'_Token' )->plainTextToken;
 
             return response()->json([
