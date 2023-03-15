@@ -35,6 +35,8 @@ class AuthController extends Controller
                 'password' => Hash::make($request->password) ,
             ]);
 
+            $stripeCustomer = $user->createAsStripeCustomer();
+
             $token = $user->createToken($user->email.'_Token' )->plainTextToken;
 
             return response()->json([
@@ -94,7 +96,12 @@ class AuthController extends Controller
         }
     }
 
-   
-
-
+    public function logout()
+    {
+        auth()->user()->tokens()->delete();
+        return response()->json([
+            'status'=>200,
+            'message'=>'Logged Out Successfully',
+        ]);
+    }
 }
