@@ -18,6 +18,12 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
         return response()->json(['message'=>'You are in', 'status'=>200],200);
     });
 
+    
+
+});
+
+Route::middleware(['auth:sanctum'])->group(function () {
+
     Route::post('logout', [AuthController::class, 'logout']);
 
 });
