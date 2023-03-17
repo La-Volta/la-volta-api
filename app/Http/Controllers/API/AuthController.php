@@ -74,7 +74,7 @@ class AuthController extends Controller
             }
             else
             {
-                if($user->role_as == 1) //1= Admin
+                if($user->role == 1) //1= Admin
                 {
                     $role = 'admin';
                     $token = $user->createToken($user->email.'_AdminToken', ['server:admin'])->plainTextToken;
