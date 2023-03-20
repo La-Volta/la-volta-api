@@ -2,7 +2,7 @@
 
     <div class="bg-red rounded shadow-lg">
         <div class="px-8 py-6">
-                <input id="card-holder-name" class="form-pay-stripe">
+                <input id="card-holder-name" class="form-pay-stripe mb-4">
             
                 <div id="card-element" class="form-pay-stripe"></div>
                 <label className="">Nombre del titular de la tarjeta</label>
