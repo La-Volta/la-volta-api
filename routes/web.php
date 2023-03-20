@@ -26,4 +26,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/billings', [BillingController::class, 'index'])->name('billings.home');
+Route::get('/billings', [BillingController::class, 'index'])
+    ->middleware('auth')
+    ->name('billings.home');
