@@ -2,10 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 
 /*
 |--------------------------------------------------------------------------
