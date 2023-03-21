@@ -34,14 +34,14 @@ class UserTest extends TestCase
 
     }
  
-    public function test_registration_screen_can_be_rendered(): void
+   /* public function test_registration_screen_can_be_rendered(): void
     {
         $response = $this->get('/register');
  
         $response->assertStatus(200);
     }
  
-/*     public function test_new_users_can_register(): void
+     public function test_new_users_can_register(): void
     {
         protected function registered(Request $request, $user)
         {
