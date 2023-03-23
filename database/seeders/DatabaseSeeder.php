@@ -14,12 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        //Storage::deleteDirectory('posts');
-        //Storage::makeDirectory('posts');
+        Storage::deleteDirectory('posts');
+        Storage::makeDirectory('posts');
 
         $this->call(RoleSeeder::class);
 
         $this->call(UserSeeder::class);
+
+        $this->call(DonationSeeder::class);
 
     
         // \App\Models\User::factory(10)->create();
