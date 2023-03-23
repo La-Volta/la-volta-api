@@ -13,7 +13,7 @@ class Donation extends Model
         'name',
         'price',
         'interval',
-        'trial_period_days',
+        //'trial_period_days',
         'lookup_key',
         'st_plan_id',
         

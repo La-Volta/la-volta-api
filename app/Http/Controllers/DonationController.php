@@ -27,7 +27,7 @@ class DonationController extends Controller
         'currency' => 'eur',
         'recurring' => [
             'interval' => $request->interval,
-            'trial_period_days' => $request->trial_period_days,
+            //'trial_period_days' => $request->trial_period_days,
         ],
         'lookup_key' => str()->snake($request->name),
         'transfer_lookup_key' => true,
@@ -42,7 +42,7 @@ class DonationController extends Controller
         $newDonation->name = $request->name;
         $newDonation->price = $request->price;
         $newDonation->interval = $request->interval;
-        $newDonation->trial_period_days = $request->trial_period_days;
+        //$newDonation->trial_period_days = $request->trial_period_days;
         $newDonation->lookup_key = str()->snake($request->name);
         $newDonation->save();
     }
