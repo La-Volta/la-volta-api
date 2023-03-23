@@ -26,7 +26,7 @@ class ApiAdminMiddleware
             {
                 return response()->json([
                     'status'=>401,
-                    'message' =>'Access Denied.! As you are not ad Admin.',
+                    'message' =>'Access Denied.! As you are not an Admin.',
                 ], 403);
             }
         }
