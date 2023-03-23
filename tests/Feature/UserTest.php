@@ -32,26 +32,9 @@ class UserTest extends TestCase
      
         $response->assertOk();
 
+        $this->assertCount(1, User::all());
+
     }
  
-   /* public function test_registration_screen_can_be_rendered(): void
-    {
-        $response = $this->get('/register');
- 
-        $response->assertStatus(200);
-    }
- 
-     public function test_new_users_can_register(): void
-    {
-        protected function registered(Request $request, $user)
-        {
-            $user->preference()->create(); // needs initialization in tests
-    
-            retusword' => '87654321',
-            
-        ]);
- 
-        $this->assertAuthenticated();
-        $response->assertRedirect(RouteServiceProvider::HOME);
-    } */ 
+  
 }
