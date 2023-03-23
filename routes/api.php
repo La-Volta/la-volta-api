@@ -34,3 +34,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/donations', [DonationController::class, 'index']);
   
 });
+
+
+Route::get('/checkout/success', [PaymentController::class, 'success'])->name('checkout.success');
+Route::get('/checkout/cancel', [PaymentController::class, 'cancel'])->name('checkout.cancel');
