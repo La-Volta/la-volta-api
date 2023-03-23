@@ -23,7 +23,7 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
 
 
 });
-Route::get('/donations', [DonationController::class, 'index']);
+
 
 
 Route::middleware(['auth:sanctum'])->group(function () {
