@@ -12,13 +12,18 @@ class DonationController extends Controller
      */
     public function index()
     {
-        //
+       
+        $donation = Donation::all();
+        return response()->json([
+            'status' => true,
+            'data' => $donation,
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function createDonation(Request $request)
+    public function create(Request $request)
     {
        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
