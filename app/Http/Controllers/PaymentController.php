@@ -91,7 +91,7 @@ class PaymentController extends Controller
             $payment->date = $session->created;
             $payment->save();
 
-            return redirect()->away('http://localhost:3000/plans/payment/success');
+            return redirect()->away('http://localhost:3000/affiliate/payment/success');
         } catch (\Exception $e) {
             throw new NotFoundHttpException();
         }
@@ -99,7 +99,7 @@ class PaymentController extends Controller
 
     public function cancel()
     {
-        return redirect()->away('http://localhost:3000/payment/cancellation');
+        return redirect()->away('http://localhost:3000/affiliate/payment/cancellation');
     }
 
 }
