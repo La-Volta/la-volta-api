@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 255);
             $table->decimal('price', 7);
-            $table->string('interval');
+            $table->string('interval')->nullable();
            // $table->integer('trial_period_days');
             $table->string('lookup_key', 255);
             $table->string('st_donation_id', 255);
