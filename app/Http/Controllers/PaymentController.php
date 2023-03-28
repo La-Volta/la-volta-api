@@ -23,6 +23,18 @@ class PaymentController extends Controller
             'price' => $donation->st_donation_id,
             'quantity' => 1,
         ]];
+        
+        $modePayment = [[]];
+        $subbscription_data = [[]];
+        if($donation->interval === null) {
+            $modePayment =  'payment';
+        } else {
+            $modePayment = 'subscription';
+            $subbscription_data =
+             [
+                'trial_from_plan' => true,
+            ];
+        }
 
         $session = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
@@ -31,10 +43,10 @@ class PaymentController extends Controller
             // ],
             'customer_email' => Auth::user()->email,
             'line_items' => $lineItems,
-            'mode' => 'subscription',
-            'subscription_data' => [
-                'trial_from_plan' => true,
-            ],
+            'mode' => $modePayment,
+            // 'subscription_data' => [
+            //     'trial_from_plan' => true,
+            // ],
             'success_url' => route('checkout.success', [], true) . "?session_id={CHECKOUT_SESSION_ID}",
             'cancel_url' => route('checkout.cancel', [], true),
         ]);
@@ -84,14 +96,14 @@ class PaymentController extends Controller
             $payment = new Payment();
             $payment->order_id = $order->id;
             $payment->st_cus_id = $session->customer;
-            $payment->st_sub_id = $session->subscription;
+           $payment->st_sub_id = $session->subscription;
             $payment->st_payment_intent_id = $session->payment_intent;
             $payment->st_payment_method = $session->payment_method_types[0];
             $payment->st_payment_status = $session->payment_status;
             $payment->date = $session->created;
             $payment->save();
 
-            return redirect()->away('http://localhost:3000/plans/payment/success');
+            return redirect()->away('http://localhost:3000/affiliate/payment/success');
         } catch (\Exception $e) {
             throw new NotFoundHttpException();
         }
@@ -99,7 +111,7 @@ class PaymentController extends Controller
 
     public function cancel()
     {
-        return redirect()->away('http://localhost:3000/payment/cancellation');
+        return redirect()->away('http://localhost:3000/affiliate/payment/cancellation');
     }
 
 }

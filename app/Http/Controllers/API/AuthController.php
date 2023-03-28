@@ -91,6 +91,7 @@ class AuthController extends Controller
                     'token'=>$token,
                     'message'=>'Logged In Successfully',
                     'role'=>$role,
+                    'userId'=>$user->id,
                 ]);
             }
         }

@@ -14,11 +14,11 @@ class DonationSeeder extends Seeder
     public function run(): void
     {
         Donation::create([
-            'name' => '5day',
-            'interval' => 'day',
+            'name' => '5punctual',
+            //'interval' => 'day',
             'price' => '5',
-            'lookup_key' => '5day', 
-            'st_donation_id' => 'price_1MpwX4EhbIltMipCIZMz9mcx'
+            'lookup_key' => '5punctual', 
+            'st_donation_id' => 'price_1MqDGTEhbIltMipCvHZgbWu3'
             
         ]);
 
