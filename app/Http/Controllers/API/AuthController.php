@@ -44,6 +44,7 @@ class AuthController extends Controller
                 'username' => $user->name,
                 'token' => $token,
                 'message' => 'Registered Succesfully',
+                'userId'=>$user->id,
             ]);
         }
     }
