@@ -25,7 +25,8 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
         return response()->json(['message'=>'You are in', 'status'=>200],200);
     });
     Route::get('/orders', [OrderController::class, 'index']);
-
+    Route::get('/orders/payments', [OrderController::class, 'showByPayments']);
+   
 
 });
 
@@ -37,6 +38,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/checkout/{id}', [PaymentController::class, 'checkout']);
     Route::post('/donation', [DonationController::class, 'create']);
     Route::get('/donations', [DonationController::class, 'index']);
+    Route::get('/orders/user/{user_id}', [OrderController::class, 'showByUser']);
   
   
 });

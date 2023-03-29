@@ -56,6 +56,7 @@ class PaymentController extends Controller
         $order->total_price = $donation->price;
         $order->session_id = $session->id;
         $order->user_id = auth()->user()->id;
+        //$order->user_name = auth()->user()->name;
         $order->save();
 
         $user = auth()->user();
