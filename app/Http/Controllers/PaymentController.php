@@ -90,18 +90,23 @@ class PaymentController extends Controller
             }
             if ($order->status === 'unpaid') {
                 $order->status = 'paid';
+         
+
                 $order->save();
             }
 
             $payment = new Payment();
             $payment->order_id = $order->id;
             $payment->st_cus_id = $session->customer;
-           $payment->st_sub_id = $session->subscription;
+            $payment->st_sub_id = $session->subscription;
             $payment->st_payment_intent_id = $session->payment_intent;
             $payment->st_payment_method = $session->payment_method_types[0];
             $payment->st_payment_status = $session->payment_status;
             $payment->date = $session->created;
             $payment->save();
+
+            $order->payment_id = $payment->id;
+            $order->save();
 
             return redirect()->away('http://localhost:3000/affiliate/payment/success');
         } catch (\Exception $e) {
