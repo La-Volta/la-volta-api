@@ -6,6 +6,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\OrderController;
 
 
 
@@ -35,6 +36,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/checkout/{id}', [PaymentController::class, 'checkout']);
     Route::post('/donation', [DonationController::class, 'create']);
     Route::get('/donations', [DonationController::class, 'index']);
+    Route::get('/orders', [OrderController::class, 'index']);
   
 });
 
