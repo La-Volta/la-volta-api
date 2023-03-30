@@ -6,6 +6,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\OrderController;
 
 
 
@@ -23,7 +24,10 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::get('/checkingAuthenticated', function (){
         return response()->json(['message'=>'You are in', 'status'=>200],200);
     });
-
+    Route::get('/orders', [OrderController::class, 'index']);
+    Route::get('/orders/payments', [OrderController::class, 'showByPayments']);
+    Route::get('/order/destroy/{id}', [OrderController::class, 'destroy']);
+    Route::post('/donation', [DonationController::class, 'create']); 
 
 });
 
@@ -33,8 +37,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('/checkout/{id}', [PaymentController::class, 'checkout']);
-    Route::post('/donation', [DonationController::class, 'create']);
     Route::get('/donations', [DonationController::class, 'index']);
+    Route::get('/orders/user/{user_id}', [OrderController::class, 'showByUser']);
+  
   
 });
 

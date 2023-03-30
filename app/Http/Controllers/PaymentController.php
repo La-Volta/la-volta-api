@@ -23,6 +23,18 @@ class PaymentController extends Controller
             'price' => $donation->st_donation_id,
             'quantity' => 1,
         ]];
+        
+        $modePayment = [[]];
+        $subbscription_data = [[]];
+        if($donation->interval === null) {
+            $modePayment =  'payment';
+        } else {
+            $modePayment = 'subscription';
+            $subbscription_data =
+             [
+                'trial_from_plan' => true,
+            ];
+        }
 
         $session = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
@@ -31,10 +43,10 @@ class PaymentController extends Controller
             // ],
             'customer_email' => Auth::user()->email,
             'line_items' => $lineItems,
-            'mode' => 'subscription',
-            'subscription_data' => [
-                'trial_from_plan' => true,
-            ],
+            'mode' => $modePayment,
+            // 'subscription_data' => [
+            //     'trial_from_plan' => true,
+            // ],
             'success_url' => route('checkout.success', [], true) . "?session_id={CHECKOUT_SESSION_ID}",
             'cancel_url' => route('checkout.cancel', [], true),
         ]);
@@ -44,6 +56,7 @@ class PaymentController extends Controller
         $order->total_price = $donation->price;
         $order->session_id = $session->id;
         $order->user_id = auth()->user()->id;
+        //$order->user_name = auth()->user()->name;
         $order->save();
 
         $user = auth()->user();
@@ -78,6 +91,8 @@ class PaymentController extends Controller
             }
             if ($order->status === 'unpaid') {
                 $order->status = 'paid';
+         
+
                 $order->save();
             }
 
@@ -91,7 +106,10 @@ class PaymentController extends Controller
             $payment->date = $session->created;
             $payment->save();
 
-            return redirect()->away('http://localhost:3000/plans/payment/success');
+            $order->payment_id = $payment->id;
+            $order->save();
+
+            return redirect()->away('http://localhost:3000/affiliate/payment/success');
         } catch (\Exception $e) {
             throw new NotFoundHttpException();
         }
@@ -99,7 +117,7 @@ class PaymentController extends Controller
 
     public function cancel()
     {
-        return redirect()->away('http://localhost:3000/payment/cancellation');
+        return redirect()->away('http://localhost:3000/affiliate/payment/cancellation');
     }
 
 }
