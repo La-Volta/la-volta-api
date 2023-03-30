@@ -47,7 +47,6 @@ class DonationController extends Controller
         $newDonation->name = $request->name;
         $newDonation->price = $request->price;
         $newDonation->interval = $request->interval;
-        //$newDonation->trial_period_days = $request->trial_period_days;
         $newDonation->lookup_key = str()->snake($request->name);
         $newDonation->save();
     }
