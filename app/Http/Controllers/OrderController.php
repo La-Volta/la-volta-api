@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -12,7 +13,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::all();
+        return $orders;
     }
 
     /**
@@ -34,9 +36,22 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function showByUserAdmin(string $user_id)
     {
-        //
+        $orderByUser = Order::where('user_id', $user_id)->get();
+        return $orderByUser;
+    }
+
+    public function showByUser(string $user_id)
+    {   
+        $orderByUser = Order::where('user_id', $user_id)->get();
+        return $orderByUser;
+    }
+
+    public function showByPayments()
+    {
+        $orderByPayment = Order::where('payment_id','!=',NULL)->get();
+        return $orderByPayment;
     }
 
     /**
@@ -58,8 +73,9 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Order $order)
+    public function destroy(string $id)
     {
-        //
+        $orders = Order::destroy($id);
+        return $orders;
     }
 }
