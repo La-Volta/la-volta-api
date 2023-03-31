@@ -26,7 +26,7 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     });
     Route::get('/orders', [OrderController::class, 'index']);
     Route::get('/orders/payments', [OrderController::class, 'showByPayments']);
-    Route::get('/order/destroy/{id}', [OrderController::class, 'destroy']);
+    Route::delete('/order/destroy/{id}', [OrderController::class, 'destroy']);
     Route::post('/donation', [DonationController::class, 'create']); 
 
 });
