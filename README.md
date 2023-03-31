@@ -1,66 +1,65 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+### Información General :ledger:
+***
+La Asociación cultural La Volta ofrece diferentes modalidades de socio para que artistas, artesanos, gestores y creadores desarrollen su proyecto profesional de autoempleo a través del ecosistema de La Volta.
+La acción de La Volta gira en torno a los residentes y los proyectos de creación que materializarán a lo largo de la residencia de dos años, prorrogable a través de otras categorías de socios, para acompañar el proceso creativo y potenciar la retroalimentación con otros creadores, públicos o entidades.
+***
+**Nuestro objetivo es ampliar su sistema de socias/os para recibir contribuciones económicas y ofrecerles beneficios por su aporte a partir de la web que estamos creando. La Volta ya tiene su propia web en WordPress.**
+***
+Este diseño hace parte del proyecto final del bottcamps ***Femcoders*** de [Factoria F5](https://factoriaf5.org/) :woman_student:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Screenshot
+![Image 1](https://www.united-internet.de/fileadmin/user_upload/Brands/Downloads/Logo_IONOS_by.jpg)
+![Image 2](https://www.united-internet.de/fileadmin/user_upload/Brands/Downloads/Logo_IONOS_by.jpg)
+![Image 3](https://www.united-internet.de/fileadmin/user_upload/Brands/Downloads/Logo_IONOS_by.jpg)
+![Image 4](https://www.united-internet.de/fileadmin/user_upload/Brands/Downloads/Logo_IONOS_by.jpg)
+![Image 5](https://www.united-internet.de/fileadmin/user_upload/Brands/Downloads/Logo_IONOS_by.jpg)
+## Tecnologias
+***
+Metodologias y herramientas: :toolbox:
+* [Trello](https://trello.com/b/Ls3plE0O/kanban-la-volta) 
+* [Visual Studio](https://code.visualstudio.com/)
+* [GitHub](https://github.com/La-Volta/la-volta-client/edit/main/README.md)
+* [Laravel](https://laravel.com/)
+* [Php](https://www.php.net/manual/es/intro-whatis.php)
+* [MySQL](https://www.mysql.com/)
+* [Stripe](https://stripe.com/es)
+* [Figama](https://www.figma.com/file/uxSfTva6l0hcZhLCf5MgES/La-Volta?node-id=1-15)
+## Instalación
+***
+1. Clonar el proyecto 
+```
+gh repo clone La-Volta/la-volta-api
+```
+2. Ir al directorio del proyecto
+```
+cd la-volata-api
+```
+3. Instalar dependencias
+```
+  npm install
+```
+```
+  composer install
+```
+4. Activar el servidor y mantener este terminal abierto
+```
+ npm run dev
+``` 
+5. Ejecute el servidor PHP y mantenga este terminal abierto
+  ```
+  php artisan serve
+  ```
+6. Migrar base de datos
+```
+  php artisan migrate:fresh --seed
+```
 
-## About Laravel
+***Enlace para el repositorio del [cliente](https://github.com/La-Volta/la-volta-client)***
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Miembros del equipo
+***
+* [Maricarmen](https://github.com/marchuovi) :penguin:
+* [Amelie](https://github.com/AmelieLT) :hatched_chick:
+* [Juliana](https://github.com/JulianaMZa) :flamingo:
+* [Bianca](https://github.com/bgiudicid) :parrot:
+* [Luisa](https://github.com/LuisaVAZ) :owl:
