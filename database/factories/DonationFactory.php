@@ -19,7 +19,7 @@ class DonationFactory extends Factory
         return [
         
             'name' => $name = fake()->word(),
-            'interval' => 'month' || null || 'year',
+            'interval' => 'month',
             'price' => fake()->numberBetween(5, 50),
             'lookup_key' => $name, 
             'st_donation_id' => fake()->uuid()
