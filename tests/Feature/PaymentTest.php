@@ -9,6 +9,7 @@ use App\Models\Donation;
 use App\Models\Payment;
 use Laravel\Sanctum\Sanctum;
 use App\Models\User;
+use Illuminate\Testing\Fluent\AssertableJson;
 
 
 
@@ -47,6 +48,9 @@ class PaymentTest extends TestCase
         $response = $this->post('/api/checkout/1');
 
         $response->assertStatus(200)
-                ->assertJsonCount(1);
+                 ->assertJson(fn (AssertableJson $json) =>
+                 $json->whereType('url', 'string')
+            
+    );
     }
 }
