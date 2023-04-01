@@ -32,6 +32,17 @@ class UserTest extends TestCase
         $this->assertCount(1, User::all());
 
     }
+
+    public function test_CheckIfUsersAreListedInJsonFile()
+    {
+        $this->withoutMiddleware();
+
+        User::factory(2)->create();
+        $response = $this->get('/api/users');
+
+        $response->assertStatus(200)
+                ->assertJsonCount(2);
+    }
  
   
 }

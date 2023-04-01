@@ -40,7 +40,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/donations', [DonationController::class, 'index']);
     Route::get('/orders/user/{user_id}', [OrderController::class, 'showByUser']);
   
-  
+    
 });
 
 
