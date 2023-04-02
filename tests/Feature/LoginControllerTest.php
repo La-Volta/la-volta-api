@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\User;
+use Laravel\Sanctum\Sanctum;
 
 class LoginControllerTest extends TestCase
 {
@@ -14,9 +16,13 @@ class LoginControllerTest extends TestCase
     public function test_login_displays_the_login_form(): void
     {
         $this->withoutExceptionHandling();
-        $response = $this->post(route('login'),[
+
+        Sanctum::actingAs(
+            User::factory()->login();
+            $response = $this->post(route('/api/login'),[
             '*' => [
                 'email', 'password'
+        
             ]
         ]);
 
