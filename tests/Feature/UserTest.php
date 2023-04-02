@@ -32,6 +32,92 @@ class UserTest extends TestCase
         $this->assertCount(1, User::all());
 
     }
- 
+
+    public function test_CheckIfUsersAreListedInJsonFile()
+    {
+        $this->withoutMiddleware();
+
+        User::factory(2)->create();
+        $response = $this->get('/api/users');
+
+        $response->assertStatus(200)
+                ->assertJsonCount(2);
+    }
+
+    public function test_CheckIfThirteenColumnsDataUserAreListedInJsonFile()
+    {
+        $this->withoutMiddleware();
+        $this->withoutExceptionHandling();
+
+        User::factory(5)->create();
+        $response = $this->get('/api/user/2');
+
+        $response->assertStatus(200)
+                ->assertJsonCount(13);
+    }
+
+    public function test_AUserCanBeCreated ()
+    {
+        $this->withoutExceptionHandling();
+        $this->withoutMiddleware();
+
+        $response = $this->post('/api/user' , [
+            'name' => 'Amelie',
+            'lastname' => 'LT',
+            'email' => 'amelie_letron@yahoo.fr',
+            'password' => bcrypt('holiholi')
+        ]);
+
+        $response->assertOk();
+        $this->assertCount(1, User::all());
+
+        $this->assertEquals(User::first()->name,'Amelie');
+        $this->assertEquals(User::first()->email, 'amelie_letron@yahoo.fr');
+
+    }
+
+    public function test_CheckIfUserCanBeDeleted(){
+    
+        $this->withoutExceptionHandling();
+        $this->withoutMiddleware();
+
+        User::factory(1)->create([
+            'id'=> 1
+        ]);
+
+        $response = $this->get('/api/users');
+        
+        $this->assertCount(1, User::all());
+        
+        $response = $this->delete('/api/user/1');
+        $response->assertOk();
+        
+        $this->assertCount(0, User::all());
+
+    }
+    
+    public function test_CheckIfUserCanBeUpdated(){
+        $this->withoutExceptionHandling();
+        $this->withoutMiddleware();
+
+        User::factory(1)->create([
+            'id'=> 1,
+            'name' => 'Bianca'
+        ]);
+
+        $response = $this->get('/api/users');
+      
+        $this->assertCount(1, User::all());
+
+        $response = $this->put('/api/user/1', [
+            'name' => 'Juliana',
+            'lastname' => 'Montaño',
+            'email' => 'zjulim89@gmail.com',
+            'password' => bcrypt('12345678')
+        ]);
+        
+        $this->assertEquals(User::first()->name,'Juliana');
+
+    }
   
 }
