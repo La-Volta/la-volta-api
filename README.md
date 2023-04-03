@@ -19,16 +19,16 @@ Metodologias y herramientas: :toolbox:
 * [Trello](https://trello.com/b/Ls3plE0O/kanban-la-volta) 
 * [Visual Studio](https://code.visualstudio.com/)
 * [GitHub](https://github.com/La-Volta/la-volta-client/edit/main/README.md)
-* [Laravel](https://laravel.com/)
-* [Php](https://www.php.net/manual/es/intro-whatis.php)
-* [MySQL](https://www.mysql.com/)
+* [Laravel](https://laravel.com/): versión 5.5
+* [Php](https://www.php.net/manual/es/intro-whatis.php): versión 8.0
+* [MySQL](https://www.mysql.com/): versión 8.0.29 
 * [Stripe](https://stripe.com/es)
 * [Figama](https://www.figma.com/file/uxSfTva6l0hcZhLCf5MgES/La-Volta?node-id=1-15)
 ## Instalación
 ***
 1. Clonar el proyecto 
 ```
-gh repo clone La-Volta/la-volta-api
+https://github.com/La-Volta/la-volta-api.git
 ```
 2. Ir al directorio del proyecto
 ```
