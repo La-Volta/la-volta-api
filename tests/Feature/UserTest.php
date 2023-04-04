@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Laravel\Sanctum\Sanctum;
 use App\Models\User;
+use Illuminate\Testing\Fluent\AssertableJson;
+
 
 class UserTest extends TestCase
 {
@@ -44,7 +46,7 @@ class UserTest extends TestCase
                 ->assertJsonCount(2);
     }
 
-    public function test_CheckIfThirteenColumnsDataUserAreListedInJsonFile()
+    public function test_CheckWhatTypeDataUserAreListedInJsonFile()
     {
         $this->withoutMiddleware();
         $this->withoutExceptionHandling();
@@ -53,7 +55,21 @@ class UserTest extends TestCase
         $response = $this->get('/api/user/2');
 
         $response->assertStatus(200)
-                ->assertJsonCount(13);
+                ->assertJsonCount(13)
+                ->assertJson(fn (AssertableJson $json) =>
+                 $json->whereType('id', 'integer')
+                      ->whereType('name', 'string')
+                      ->whereType('lastname', 'string')
+                      ->whereType('email', 'string')
+                      ->whereType('email_verified_at', 'string')
+                      ->whereType('donation_id', 'null')
+                      ->whereType('created_at', 'string')
+                      ->whereType('updated_at', 'string')
+                      ->whereType('stripe_id', 'null')
+                      ->whereType('pm_type', 'null')
+                      ->whereType('pm_last_four', 'null')
+                      ->whereType('trial_ends_at', 'null')
+                      ->whereType('role', 'integer'));
     }
 
     public function test_AUserCanBeCreated ()
