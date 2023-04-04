@@ -93,7 +93,7 @@ class PaymentController extends Controller
                 $order->status = 'paid';
          
 
-                $order->save();
+                $order->save() ;
             }
 
             $payment = new Payment();
