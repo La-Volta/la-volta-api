@@ -17,6 +17,7 @@ return [
         'numeric' => 'El tamaño de :attribute debe ser de al menos :min.',
     ],
     'email' => 'El campo no es un correo válido.',
+    'MAIL_ENCRYPTION' => 'es invalido, ya esta en uso',
     
     /*'accepted'             => 'El campo :attribute debe ser aceptado.',
     'accepted_if'          => 'El campo :attribute debe ser aceptado cuando :other sea :value.',
